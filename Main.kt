@@ -1,6 +1,6 @@
 import kotlin.system.exitProcess
 
-// aktualny stav a jeho zmeny
+// aktualny stav a jeho zmeny --------------------------------------------------------
 
 enum class Zasoby(var voda: Int, var mlieko: Int, var kava: Int, var pohare: Int, var koruny: Int) {
     AKTUALNY_STAV(voda = 400, mlieko = 540, kava = 120, pohare = 9, koruny = 550),
@@ -9,21 +9,16 @@ enum class Zasoby(var voda: Int, var mlieko: Int, var kava: Int, var pohare: Int
     CAPPUCCINO(voda = 200, mlieko = 100, kava = 12, pohare = 1, koruny = 6);
 }
 
-enum class MenuAkcia(var buy: String, var fill: String, var take: String, var remaining: String, 
-                     var exit1: String) {
+enum class MenuAkcia(var buy: String, var fill: String, var take: String, var remaining: String, var exit1: String) {
     MENU("buy", "fill", "take", "remaining", "exit")
 }
 
+// hlavná funkcia ----------------------------------------------------------------------
 var exit = true
-
-// ---------------------------------------------------------------------------------------------
-
-// hlavná funkcia
 
 fun main() {
 
-   do {Cofemat().menu()} while (exit)
-
+    do {Cofemat().menu()} while (exit)
 }
 
 // --------------------------------------------------------------------------------------
@@ -83,10 +78,8 @@ fun buy() {
             Zasoby.AKTUALNY_STAV.kava -= Zasoby.valueOf(vyber).kava
             Zasoby.AKTUALNY_STAV.pohare--
             Zasoby.AKTUALNY_STAV.koruny += Zasoby.valueOf(vyber).koruny
+        }          
         }
-            
-        }
-
         medzera()
     }
 
